@@ -1,12 +1,42 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>~
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./Assets/styles.css" />
+        <title>Document</title>
+	</head>
+	<body>
+		<!--  right section for user input and local storage -->
+		<section class="rightSection">
+			<h1>Find your ride based on the year you were born.</h1>
+			<form action="/action_page.php">
+				<label for="fname">Name:</label><br />
+				<input type="text" id="fname" name="fname" value="Name" /><br />
+				<label for="lname">Birthyear:</label><br />
+				<input type="text" id="lname" name="lname" value="Year" /><br /><br />
+				<input type="submit" value="Submit" />
+			</form>
+			<div class="name"></div>
+			<div class="DOF"></div>
+			<div class="userList">
+				<!-- Here will be list of the users history from the local storage -->
+			</div>
+
+			<section class="mainPicture">
+				<img src="./Images/Chinese-Zodiac.png" alt="" />
+				<button class="WheelButton"><img src="./Images/car-alloy-wheel-rim-spoke-car.jpg" alt="" /></button>
+			</section>
+
+			<section class="rightSection">
+				<ul class="carList"></ul>
+				<!-- Here will be the list of cars -->
+			</section>
+		</section>
+	</body>
+	<script src="./Assets/java.js"></script>
+</html>
