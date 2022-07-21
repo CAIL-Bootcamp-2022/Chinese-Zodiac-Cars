@@ -1,39 +1,38 @@
 :root {
-    --mainred: #B80C09;
-    --mainyellow:#FFBA49; 
-    --mainblack:#2F2D2E;
-    --maingray: #8D99AE;
-    --mainwhite:#edf2f4; 
+  --mainred: #B80C09;
+  --mainyellow: #FFBA49;
+  --mainblack: #2F2D2E;
+  --maingray: #8D99AE;
+  --mainwhite: #edf2f4;
+  --color-1: #442288;
+  --color-2: #6ca2ea;
+  --color-3: #b5d33d;
+  --color-4: #fed23f;
+  --color-5: #eb7d5b;
+  --angle: 0deg;
+}
 
-}
 body {
-    font-family: "Open Sans", sans-serif;
-    background-color:linear-gradient(to left, rgb(54, 1, 92), green, rgb(72, 72, 236), rgb(255, 0, 64), rgb(22, 184, 7));
-    -webkit-background-clip: text;
-    background-clip: text;
-    /* color: transparent; */
+  font-family: "Open Sans", sans-serif;
+  background-color: linear-gradient(to left, rgb(54, 1, 92), green, rgb(72, 72, 236), rgb(255, 0, 64), rgb(22, 184, 7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* color: transparent; */
 }
-:root {
-    --color-1: #442288;
-    --color-2: #6ca2ea;
-    --color-3: #b5d33d;
-    --color-4: #fed23f;
-    --color-5: #eb7d5b;
-    --angle: 0deg;
-  }
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background: #000; */
-  }
-  h1 {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    background: linear-gradient(
-      var(--angle),
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #000; */
+}
+
+h1 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(var(--angle),
       var(--color-1) 19%,
       transparent 19%,
       transparent 20%,
@@ -49,20 +48,21 @@ body {
       var(--color-4) 79%,
       transparent 79%,
       transparent 80%,
-      var(--color-5) 80%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent; 
-    animation: 10s rotate linear infinite;
+      var(--color-5) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: 10s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
   }
-  @keyframes rotate {
-    to {
-      --angle: 360deg;
-    }
-  }
-  @property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
