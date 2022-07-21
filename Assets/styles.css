@@ -1,3 +1,11 @@
+:root {
+    --mainred: #B80C09;
+    --mainyellow:#FFBA49; 
+    --mainblack:#2F2D2E;
+    --maingray: #8D99AE;
+    --mainwhite:#edf2f4; 
+
+}
 body {
     font-family: "Open Sans", sans-serif;
     background-color:linear-gradient(to left, rgb(54, 1, 92), green, rgb(72, 72, 236), rgb(255, 0, 64), rgb(22, 184, 7));
