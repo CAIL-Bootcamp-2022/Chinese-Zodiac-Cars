@@ -1,4 +1,6 @@
 // Ajax for Cars Api
+var wheelBtn = document.querySelector('#WheelButton')
+
 const settings = {
 	"async": true,
 	"crossDomain": true,
@@ -9,6 +11,20 @@ const settings = {
 		"X-RapidAPI-Host": "car-data.p.rapidapi.com"
 	}
 };
+
+function loadCarData() {
+	//creat ajax object
+	$.ajax({
+		url: requestUrl,
+		method: 'GET',
+	  }).then(function (response) {
+		console.log('Ajax Reponse \n-------------');
+		console.log(response);
+	  });
+}
+
+wheelBtn.addEventListener("click", loadCarData);
+
 
 $.ajax(settings).done(function (response) {
 	console.log(response);
