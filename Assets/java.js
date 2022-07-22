@@ -1,5 +1,5 @@
 // Ajax for Cars Api
-var wheelBtn = document.querySelector('#WheelButton')
+var wheelBtn = document.querySelector('#wheelbutton')
 
 const settings = {
 	"async": true,
@@ -14,10 +14,7 @@ const settings = {
 
 function loadCarData() {
 	//creat ajax object
-	$.ajax({
-		url: requestUrl,
-		method: 'GET',
-	  }).then(function (response) {
+	$.ajax(settings).then(function (response) {
 		console.log('Ajax Reponse \n-------------');
 		console.log(response);
 	  });
@@ -25,7 +22,4 @@ function loadCarData() {
 
 wheelBtn.addEventListener("click", loadCarData);
 
-
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+loadCarData()
