@@ -2,47 +2,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="Assets/reset.css" />
-		<link href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="./assets/styles.css" />
-		<title>Document</title>
-	</head>
-	<body>
-		<!--  right section for user input and local storage -->
-		<section class="rightSection">
-			<h1>Find your ride based on the year you were born.</h1>
-			<form>
-				<label for="fname">Name:</label><br />
-				<input type="text" id="fname" name="fname" value="Name" /><br />
-				<label for="lname">Birthyear:</label><br />
-				<input type="text" id="lname" name="lname" value="Year" /><br /><br />
-				<input type="submit" value="Submit" />
-			</form>
-			<div class="name"></div>
-			<div class="DOF"></div>
-			<div class="userList">
-				<!-- Here will be list of the users history from the local storage -->
-			</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      href="https://unpkg.com/bonsai.css@latest/dist/bonsai.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--  right section for user input and local storage -->
+    <section class="rightSection">
+      <h1>Find your ride based on the year you were born.</h1>
+      <form>
+        <label for="fname">Name:</label><br />
+        <input type="text" id="fname" name="fname" value="Name" /><br />
+        <label for="lname">Birthyear:</label><br />
+        <input type="text" id="lname" name="lname" value="Year" /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+      <div class="name"></div>
+      <div class="DOF"></div>
+      <div class="userList">
+        <!-- Here will be list of the users history from the local storage -->
+      </div>
 
-			<section class="mainPicture">
-				<img src="./images/lunar_tuner_wheel.png" alt="" />
-				<button id="wheelbutton"><img src="./images/car_wheel.png" alt="" /></button>
-			</section>
+      <section class="mainPicture">
+        <img src="./assets/images/lunar_tuner_wheel.png" alt="" />
+        <button id="wheel-btn">
+          <img src="./assets/images/car_wheel.png" alt="" />
+        </button>
+      </section>
 
-			<section class="rightSection">
-				<ul class="carList"></ul>
-				<!-- Here will be the list of cars -->
-			</section>
-		</section>
-	</body>
-	<script
-		src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous"
-	></script>
-	<script src="./assets/java.js"></script>
+      <section class="rightSection">
+        <ul class="carList"></ul>
+        <!-- Here will be the list of cars -->
+      </section>
+    </section>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="./assets/js/script.js"></script>
 </html>
