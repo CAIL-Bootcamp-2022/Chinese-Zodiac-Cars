@@ -1,5 +1,5 @@
 // Ajax for Cars Api
-var wheelBtn = document.querySelector('#wheelbutton')
+var wheelBtn = document.querySelector("#wheel-btn")
 
 const settings = {
 	"async": true,
