@@ -1,0 +1,144 @@
+:root {
+  --mainred: #B80C09;
+  --mainyellow: #FFBA49;
+  --mainblack: #2F2D2E;
+  --maingray: #8D99AE;
+  --mainwhite: #edf2f4;
+  --color-1: #442288;
+  --color-2: #6ca2ea;
+  --color-3: #b5d33d;
+  --color-4: #fed23f;
+  --color-5: #eb7d5b;
+  --angle: 0deg;
+}
+
+
+header,footer{
+  width: 100%;
+  background-color: var(--mainred);
+  position: absolute;
+  color: var(--mainwhite);
+  margin: 0%;
+  padding: 0%;
+}
+
+#logo{
+  float: left;
+  max-width: 108px;
+  max-height: 108px;
+
+}
+
+header{
+  height: 15vh;
+  top: 0;
+}
+header h2{
+  position: absolute;
+  margin-top: 30px;
+  left: 130px;
+}
+header h1{
+  position: absolute;
+  margin-top: 60px;
+  right: 150px;
+}
+
+footer{
+  height: 8vh;
+}
+
+footer h2{
+  position: absolute;
+  bottom: 0;
+}
+
+
+#wheel-btn {
+  border-radius: 50%;
+  border-color: var(--mainblack);
+  border-width: thick;
+  height: 350px;
+  width: 350px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: linear-gradient(to left, rgb(54, 1, 92), green, rgb(72, 72, 236), rgb(255, 0, 64), rgb(22, 184, 7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-color: var(--mainyellow);
+  /* color: transparent; */
+}
+
+
+h1 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(var(--angle),
+      var(--color-1) 19%,
+      transparent 19%,
+      transparent 20%,
+      var(--color-2) 20%,
+      var(--color-2) 39%,
+      transparent 39%,
+      transparent 40%,
+      var(--color-3) 40%,
+      var(--color-3) 59%,
+      transparent 59%,
+      transparent 60%,
+      var(--color-4) 60%,
+      var(--color-4) 79%,
+      transparent 79%,
+      transparent 80%,
+      var(--color-5) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: 10s rotate linear infinite;
+}
+
+.Div-usersList{
+  width: 10em;
+  height: 5em;
+  border: solid;
+  border-color: black;
+  background-color:green;
+}
+
+.Div-carList{
+  display: inline-block;
+  width: 10em;
+  height: 5em;
+  border: solid;
+  border-color: black;
+  background-color:blue;
+
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.info-form{
+  position: relative;
+  top: 130px;
+  max-width: 10%;
+}
+
+.mainPicture{
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+
+}

@@ -11,10 +11,16 @@
         <title>Document</title>
 	</head>
 	<body>
+		<header>
+			<div id="logo"> <img src="./assets/images/lunar_tuner.png" alt="lunar tuner logo!"></div>
+			<h2>LunarTuner</h2>
+			<h1>Find your ride based on the year you were born.</h1>
+		  </header>
 		<!--  right section for user input and local storage -->
 		<section class="rightSection">
 			<h1>Find your ride based on the year you were born.</h1>
 			<form action="/action_page.php">
+			<form class="info-form">
 				<label for="fname">Name:</label><br />
 				<input type="text" id="fname" name="fname" value="Name" /><br />
 				<label for="lname">Birthyear:</label><br />
@@ -30,6 +36,10 @@
 			<section class="mainPicture">
 				<img src="./Images/Chinese-Zodiac.png" alt="" />
 				<button class="WheelButton"><img src="./Images/car-alloy-wheel-rim-spoke-car.jpg" alt="" /></button>
+				<img src="./assets/images/lunar_tuner_wheel.png" alt="" />
+				<button id="wheel-btn" onclick=" loadCarData(); loadImage(); addNewUser(); addNewCar()">
+					<img src="./assets/images/car_wheel.png" alt="" />
+				</button>
 			</section>
 
 			<section class="rightSection">
@@ -37,6 +47,9 @@
 				<!-- Here will be the list of cars -->
 			</section>
 		</section>
+		<footer>
+			<h2>Created by Alan, Christian, Ivan and Lee!</h2>
+		  </footer>
 	</body>
 	<script src="./Assets/java.js"></script>
 </html>
