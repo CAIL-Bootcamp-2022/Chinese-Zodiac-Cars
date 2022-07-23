@@ -11,6 +11,26 @@
   --color-5: #eb7d5b;
   --angle: 0deg;
 }
+#main-container{
+  display: flex;
+  min-height: 100vh;
+  flex: auto;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+main{
+  min-height: 500px;
+  display: flex;
+  flex: auto;
+  flex-flow: row wrap;
+  background-color: var(--mainyellow);
+}
 
 header,footer{
   width: 100%;
@@ -33,14 +53,14 @@ header{
   top: 0;
 }
 header h2{
-  position: absolute;
-  margin-top: 30px;
-  left: 130px;
+display: flex;
+justify-content: flex-start;
+align-content: center;
 }
 header h1{
-  position: absolute;
-  margin-top: 60px;
-  right: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 footer{
@@ -48,8 +68,7 @@ footer{
 }
 
 footer h2{
-  position: absolute;
-  bottom: 0;
+  flex-direction: column;
 }
 
 
@@ -59,6 +78,9 @@ footer h2{
   border-width: thick;
   height: 350px;
   width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body {
@@ -71,31 +93,14 @@ body {
 }
 
 h1 {
-  color: #fff;
-  font-size: 1rem;
+  color: var(--mainyellow);
+  font-size: 2rem;
   font-weight: 900;
-  text-transform: uppercase;
-  background: linear-gradient(var(--angle),
-      var(--color-1) 19%,
-      transparent 19%,
-      transparent 20%,
-      var(--color-2) 20%,
-      var(--color-2) 39%,
-      transparent 39%,
-      transparent 40%,
-      var(--color-3) 40%,
-      var(--color-3) 59%,
-      transparent 59%,
-      transparent 60%,
-      var(--color-4) 60%,
-      var(--color-4) 79%,
-      transparent 79%,
-      transparent 80%,
-      var(--color-5) 80%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: 10s rotate linear infinite;
+}
+h2 {
+  color: var(--mainyellow);
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 .Div-usersList{
@@ -104,6 +109,9 @@ h1 {
   border: solid;
   border-color: black;
   background-color:green;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .Div-carList{
@@ -113,30 +121,22 @@ h1 {
   border: solid;
   border-color: black;
   background-color:blue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
 }
 
-@keyframes rotate {
-  to {
-    --angle: 360deg;
-  }
-}
-
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
 
 .info-form{
-  position: relative;
-  top: 130px;
+  display: flex;
+  flex-direction: column;
   max-width: 10%;
+  justify-content: center;
 }
 
 .mainPicture{
-  position: relative;
-  top: 50%;
-  bottom: 50%;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
