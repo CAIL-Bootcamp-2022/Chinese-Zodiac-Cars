@@ -62,6 +62,24 @@ h1 {
   animation: 10s rotate linear infinite;
 }
 
+.Div-usersList{
+  width: 10em;
+  height: 5em;
+  border: solid;
+  border-color: black;
+  background-color:green;
+}
+
+.Div-carList{
+  display: inline-block;
+  width: 10em;
+  height: 5em;
+  border: solid;
+  border-color: black;
+  background-color:blue;
+
+}
+
 @keyframes rotate {
   to {
     --angle: 360deg;
