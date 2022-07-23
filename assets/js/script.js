@@ -5,6 +5,9 @@ var userList = document.getElementById("userList");
 var carList = document.getElementById("carList");
 var firstName = document.getElementById("fname");
 var birthYear = document.getElementById("birthyear");
+var zodiacAnimal = "";
+var userYears = [];
+var chosenYear = 2020;
 
 const zodiacYears = {
   rat: [1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020],
@@ -21,39 +24,121 @@ const zodiacYears = {
   pig: [1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031],
 };
 
-function loadCarData() {
+function userZodiac() {
+  for (var i = 0; i < zodiacYears.rat.length; i++) {
+    if (birthYear.value === zodiacYears.rat[i]) {
+      zodiacAnimal = "rat";
+      userYears = zodiacYears.rat;
+    }
+  }
+  for (var i = 0; i < zodiacYears.ox.length; i++) {
+    if (birthYear.value === zodiacYears.ox[i]) {
+      zodiacAnimal = "ox";
+      userYears = zodiacYears.ox;
+    }
+  }
+  for (var i = 0; i < zodiacYears.tiger.length; i++) {
+    if (birthYear.value === zodiacYears.tiger[i]) {
+      zodiacAnimal = "tiger";
+      userYears = zodiacYears.tiger;
+    }
+  }
+  for (var i = 0; i < zodiacYears.rabbit.length; i++) {
+    if (birthYear.value === zodiacYears.rabbit[i]) {
+      zodiacAnimal = "rabbit";
+      userYears = zodiacYears.rabbit;
+    }
+  }
+  for (var i = 0; i < zodiacYears.dragon.length; i++) {
+    if (birthYear.value === zodiacYears.dragon[i]) {
+      zodiacAnimal = "dragon";
+      userYears = zodiacYears.dragon;
+    }
+  }
+  for (var i = 0; i < zodiacYears.snake.length; i++) {
+    if (birthYear.value === zodiacYears.snake[i]) {
+      zodiacAnimal = "snake";
+      userYears = zodiacYears.snake;
+    }
+  }
+  for (var i = 0; i < zodiacYears.horse.length; i++) {
+    if (birthYear.value === zodiacYears.horse[i]) {
+      zodiacAnimal = "horse";
+      userYears = zodiacYears.horse;
+    }
+  }
+  for (var i = 0; i < zodiacYears.goat.length; i++) {
+    if (birthYear.value === zodiacYears.goat[i]) {
+      zodiacAnimal = "goat";
+      userYears = zodiacYears.goat;
+    }
+  }
+  for (var i = 0; i < zodiacYears.monkey.length; i++) {
+    if (birthYear.value === zodiacYears.monkey[i]) {
+      zodiacAnimal = "monkey";
+      userYears = zodiacYears.monkey;
+    }
+  }
+  for (var i = 0; i < zodiacYears.rooster.length; i++) {
+    if (birthYear.value === zodiacYears.rooster[i]) {
+      zodiacAnimal = "rooster";
+      userYears = zodiacYears.rooster;
+    }
+  }
+  for (var i = 0; i < zodiacYears.dog.length; i++) {
+    if (birthYear.value === zodiacYears.dog[i]) {
+      zodiacAnimal = "dog";
+      userYears = zodiacYears.dog;
+    }
+  }
+  for (var i = 0; i < zodiacYears.pig.length; i++) {
+    if (birthYear.value === zodiacYears.pig[i]) {
+      zodiacAnimal = "pig";
+      userYears = zodiacYears.pig;
+    }
+  }
+}
+
+function chooseYear() {
+  function getRandomIntInclusive(min = 0, max = 8) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+  }
+
+  chosenYear = userYears[getRandomIntInclusive()];
+}
+
+function getCarApi() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: "https://car-data.p.rapidapi.com/cars/types",
+    url: `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?year=${chosenYear}`,
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "dc01b57ea1mshaa4f3952e2dd924p15fbecjsn41cb7f5ff069",
-      "X-RapidAPI-Host": "car-data.p.rapidapi.com",
+      "X-RapidAPI-Key": "300eaad7a9msha0f4b2341a1eaf5p1dc711jsncb8ce3e78087",
+      "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
     },
   };
-  //creat ajax object
-  $.ajax(settings).then(function (response) {
-    console.log("Ajax Reponse \n-------------");
-    console.log(response);
+
+  $.ajax(settings).done(function (response) {
+    console.log("car-response", response);
   });
 }
 
-wheelBtn.addEventListener("click", loadCarData);
-
-loadCarData();
-
-function loadImage() {
+// gets image from API
+function getImageApi() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://api.pexels.com/v1/search?query=nature`,
+    url: `https://api.pexels.com/v1/search?query=${carData}`,
     method: "GET",
     headers: {
       Authorization: "563492ad6f9170000100000125fc35443ac14f708d6dc9b7b281a2fd",
     },
   };
-  $.ajax(settings).then(function (response) {
+
+  $.ajax(settings).done(function (response) {
     console.log("image-response", response);
   });
 }
@@ -72,7 +157,13 @@ function addNewCar() {
   carList.appendChild(newCarDiv);
 }
 
-loadCarData();
-loadImage();
-addNewUser();
-addNewCar();
+function btnWrapper() {
+  userZodiac();
+  chooseYear();
+  getCarApi();
+  // getImageApi();
+  // addNewUser();
+  // addNewCar();
+}
+
+wheelBtn.addEventListener("click", btnWrapper);
