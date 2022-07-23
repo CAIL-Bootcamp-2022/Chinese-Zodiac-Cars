@@ -1,6 +1,10 @@
-// Ajax for Cars Api
-var wheelBtn = document.querySelector("#wheel-btn")
-var carSearchYear = document.querySelector("#birthyear").value
+// var SubmitBtn = document.getElementById("Submit")
+var wheelBtn = document.querySelector("#wheel-btn");
+var carSearchYear = document.querySelector("#birthyear");
+var userList = document.getElementById ("userList");
+var carList = document.getElementById ("carList");
+var firstName = document.getElementById("fname");
+var birthYear = document.getElementById("birthyear");
 
 
 const settings = {
@@ -41,5 +45,23 @@ function loadImage() {
 	});
   }
 
+//   Add user list
+  function addNewUser () {
+	var newUserDiv = document.createElement("div");
+	newUserDiv.classList.add('Div-usersList');
+	userList.appendChild(newUserDiv);
+	
+  }
 
+//   Add cars list
+function addNewCar() {
+	var newCarDiv = document.createElement("div");
+	newCarDiv.classList.add('Div-carList');
+	carList.appendChild(newCarDiv);
+}
+
+
+loadCarData()
 loadImage()
+addNewUser ()
+addNewCar()
