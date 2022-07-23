@@ -12,11 +12,53 @@
   --angle: 0deg;
 }
 
-#WheelButton {
-  border: solid;
+header,footer{
+  width: 100%;
+  background-color: var(--mainred);
+  position: absolute;
+  color: var(--mainwhite);
+  margin: 0%;
+  padding: 0%;
+}
+
+#logo{
+  float: left;
+  max-width: 108px;
+  max-height: 108px;
+
+}
+
+header{
+  height: 15vh;
+  top: 0;
+}
+header h2{
+  position: absolute;
+  margin-top: 30px;
+  left: 130px;
+}
+header h1{
+  position: absolute;
+  margin-top: 60px;
+  right: 150px;
+}
+
+footer{
+  height: 8vh;
+}
+
+footer h2{
+  position: absolute;
+  bottom: 0;
+}
+
+
+#wheel-btn {
   border-radius: 50%;
-  height: 500px;
-  width: 500px;
+  border-color: var(--mainblack);
+  border-width: thick;
+  height: 350px;
+  width: 350px;
 }
 
 body {
@@ -24,14 +66,8 @@ body {
   background-color: linear-gradient(to left, rgb(54, 1, 92), green, rgb(72, 72, 236), rgb(255, 0, 64), rgb(22, 184, 7));
   -webkit-background-clip: text;
   background-clip: text;
+  background-color: var(--mainyellow);
   /* color: transparent; */
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background: #000; */
 }
 
 h1 {
@@ -92,3 +128,15 @@ h1 {
   inherits: false;
 }
 
+.info-form{
+  position: relative;
+  top: 130px;
+  max-width: 10%;
+}
+
+.mainPicture{
+  position: relative;
+  top: 50%;
+  bottom: 50%;
+
+}
