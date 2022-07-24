@@ -221,11 +221,6 @@ function doAnimation() {
 const modal = document.querySelector('#my-modal');
 const closeBtn = document.querySelector('.close');
 
-// Events
-wheelBtn.addEventListener('click', openModal);
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
-
 // Open
 function openModal() {
   modal.style.display = 'block';
@@ -244,7 +239,7 @@ function outsideClick(e) {
 }
 
 function btnWrapper() {
-  if (birthYear.value >= 1900 && birthYear.value <= 2022) {
+  if (birthYear.value >= 1900 && birthYear.value <= 2022 && firstName.value) {
   console.log("birthYear.value", birthYear.value);
   userZodiac();
   console.log("userYears", userYears);
@@ -256,8 +251,11 @@ function btnWrapper() {
   roulette_spin();
   roulette_spin(this);}
   else {
-    modal();
+    openModal();
   }
 }
 
+// Events
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
 wheelBtn.addEventListener("click", btnWrapper);
