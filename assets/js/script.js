@@ -158,8 +158,11 @@ function addNewCar() {
 }
 
 function btnWrapper() {
+  console.log("birthYear.value",birthYear.value);
   userZodiac();
+  console.log("userYears", userYears);
   chooseYear();
+  console.log("chosenYear", chosenYear);
   getCarApi();
   // getImageApi();
   // addNewUser();
