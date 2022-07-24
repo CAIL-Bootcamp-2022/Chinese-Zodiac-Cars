@@ -131,7 +131,7 @@ function getCarApi() {
       getCarApi();
     }
     else {
-      carSearchData = `${response[0].make} ${response[0].model} ${response[0].year}`
+      carSearchData = `${response[0].make}`
       console.log("carSearchData",carSearchData)
       getImageApi();
     }
