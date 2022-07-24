@@ -46,13 +46,24 @@
 			Spin the Wheel</button>
       </fieldset>
       
+	  <div id="my-modal" class="modal">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<span class="close">&times;</span>
+		  </div>
+		  <div class="modal-body">
+			<p>ERROR!</p>
+			<p>Please fill out the name and or the year properly!</p>
+		  </div>
+		</div>
+	  </div>
+
       <div class="name"></div>
 			<div class="DOF"></div>
 			<p style="--mx:31px;">Recent searches:</p>
 			<div id="userList" style="--shadow:2.5">
 				<!-- Here will be list of the users history from the local storage -->
 			</div>
-
 
         <div class="wheel" style="--inset-top:350px; --pos:absolute;--px:42px;">
           <span id="score" style="--shadow:3">&nbsp;</span>
