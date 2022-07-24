@@ -1,4 +1,4 @@
-// var SubmitBtn = document.getElementById("Submit")
+// var SubmitBtn = document.getElementById("black")
 var wheelBtn = document.querySelector("#wheel-btn");
 var carSearchYear = document.querySelector("#birthyear");
 var userList = document.getElementById("userList");
@@ -170,3 +170,49 @@ function btnWrapper() {
 }
 
 wheelBtn.addEventListener("click", btnWrapper);
+
+// Wheele spining
+var force = 0;
+var angle = 0;
+var rota = 1;
+var inertia = 0.985;
+var minForce = 15;
+var randForce = 15;
+var rouletteElem = document.getElementsByClassName('roulette_wheel')[0];
+var scoreElem = document.getElementById('score');
+
+var values = [
+  "Your chinese horoscope is Rat", " Your chinese horoscope is Ox", " Your chinese horoscope is Tiger", " Your chinese horoscope is Rabbit", 
+  "Your chinese horoscope is Dragon", " Your chinese horoscope is Snake", " Your chinese horoscope is Horse",
+  "Your chinese horoscope is Sheep", "Your chinese horoscope is Monkey", "Your chinese horoscope is Rooster",
+  "Your chinese horoscope is Dog ", "Your chinese horoscope is Pig"
+].reverse();
+
+function roulette_spin(btn) {
+  // set initial force randomly
+  force = Math.floor(Math.random() * randForce) + minForce;
+  requestAnimationFrame(doAnimation);
+}
+
+function doAnimation() {
+  // new angle is previous angle + force modulo 360 (so that it stays between 0 and 360)
+  angle = (angle + force) % 360;
+  // decay force according to inertia parameter
+  force *= inertia;
+  rouletteElem.style.transform = 'rotate(' + angle + 'deg)';
+  // stop animation if force is too low
+  if (force < 0.05) {
+	// score roughly estimated
+	scoreElem.innerHTML = values[Math.floor(((angle / 360) * values.length) - 0.5)];
+	return;
+  }
+  requestAnimationFrame(doAnimation);
+  // document.getElementsByClassName('roulette_center')[0].addEventListener('click', roulette_spin);
+}
+
+
+loadCarData();
+loadImage();
+addNewUser();
+addNewCar();
+roulette_spin();
