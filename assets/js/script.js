@@ -217,6 +217,32 @@ function doAnimation() {
   // document.getElementsByClassName('roulette_center')[0].addEventListener('click', roulette_spin);
 }
 
+// Get DOM Elements
+const modal = document.querySelector('#my-modal');
+const closeBtn = document.querySelector('.close');
+
+// Events
+wheelBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
 function btnWrapper() {
   if (birthYear.value >= 1900 && birthYear.value <= 2022) {
   console.log("birthYear.value", birthYear.value);
@@ -230,7 +256,7 @@ function btnWrapper() {
   roulette_spin();
   roulette_spin(this);}
   else {
-    alert("Invalid year");
+    modal();
   }
 }
 
