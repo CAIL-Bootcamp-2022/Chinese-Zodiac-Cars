@@ -7,7 +7,7 @@ var birthYear = document.getElementById("birthyear");
 var zodiacAnimal = "";
 var userYears = [];
 var chosenYear;
-var carSearchData;
+var carData;
 
 const zodiacYears = {
   rat: [1900, 1912, 1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020],
@@ -131,8 +131,8 @@ function getCarApi() {
       getCarApi();
     }
     else {
-      carSearchData = `${response[0].make}`
-      console.log("carSearchData",carSearchData)
+      carData = response;
+      console.log("carData",carData)
       getImageApi();
     }
   });
@@ -143,7 +143,7 @@ function getImageApi() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://api.pexels.com/v1/search?query=${carSearchData}`,
+    url: `https://api.pexels.com/v1/search?query=${carData[0].make}}`,
     method: "GET",
     headers: {
       Authorization: "563492ad6f9170000100000125fc35443ac14f708d6dc9b7b281a2fd",
