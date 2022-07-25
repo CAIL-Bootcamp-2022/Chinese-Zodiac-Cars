@@ -25,35 +25,15 @@
 			<fieldset class="Firstflex">
 				<legend>Find your ride based on the year you were born.</legend>
 
-				<div class="vertical">
-					<p>
-						<label
-							>First Name
-							<input type="text" id="fname" placeholder="Name" />
-						</label>
-					</p>
-					<p>
-						<label
-							>Year of Birth
-							<input type="text" id="birthyear" placeholder="Year of Birth" />
-						</label>
-					</p>
-				</div>
-				<button
-					class="black"
-					id="wheel-btn"
-					onclick=" loadCarData(); loadImage();
-	          addNewUser(); addNewCar() ; roulette_spin() ; roulette_spin(this)"
-				>
-					Spin the Wheel
-				</button>
-				<div class="name"></div>
-				<div class="DOF"></div>
-				<p style="--mx: 31px">Recent searches:</p>
-				<div id="userList">
-					<!-- Here will be list of the users history from the local storage -->
-				</div>
+				<button class="black" id="wheel-btn">Spin the Wheel</button>
 			</fieldset>
+
+			<div class="name"></div>
+			<div class="DOF"></div>
+			<p style="--mx: 31px">Recent searches:</p>
+			<div id="userList" style="--shadow: 2.5">
+				<!-- Here will be list of the users history from the local storage -->
+			</div>
 
 			<section class="secondSection">
 				<span id="score">&nbsp;</span>
