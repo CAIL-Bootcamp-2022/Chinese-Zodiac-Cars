@@ -9,15 +9,6 @@ body{
   background-image: linear-gradient(to left, rgb(255, 217, 0), orange, rgba(255, 0, 0, 0.753));
 }
 
-/* background-image */
-.first{ 
-  position: relative;
-  text-align: center;
-  color: rgb(19, 4, 4);
-  width: 100%;
-  height: 350px;
-}
-
 .webpicture{
   width: 100%;
   height: 200px;
@@ -32,38 +23,6 @@ body{
   margin-right: 100px;
   
 }
-
-h1{
-  text-align:left;
-  background-image: linear-gradient(to left, rgb(255, 255, 0), rgb(151, 98, 0), rgb(107, 0, 0));
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
- /* User Input  */
-
-.leftSection{
-  width: 400px;
-  font-size: large;
-  color: black;
-  font-weight: bold;
-}
-
-fieldset {
-  margin-left: 0.5rem;
-}
-
-.wheel-btn{
-  margin-left: 30px;
-}
-
-.wheel-btn:hover{
-  cursor: pointer;
-  opacity: 0.9;
-}
-
 /* roulette_center */
 
 .roulette_wheel{
@@ -75,23 +34,21 @@ fieldset {
 font-weight:400;
 font-size:50px; 
 text-align: center;
-
 }
 
 /* Car list style */
 
 .mainSection{
   display: flex;
-  max-width: fit-content;
+
 }
 
 .Firstflex .secondSection .thirdSection{
-justify-content: center;
+flex-direction: row;
 margin-left: 5px;
 margin-right: 5px;
 
 }
-
 
 .Div-usersList{
 height: 50px;
@@ -103,16 +60,18 @@ border-radius: 0.8rem;
 margin-left: 1.2rem;
 margin-bottom: 0.2rem;
 
+
 }
 .wheel{
 padding-left: 5%;
-border: solid;
-border-color: black;
-border-width: 2px;
 width: fit-content;
 
 }
 
+.thirdSection{
+  flex-shrink: 1;
+  
+}
 .carList{
 display: flex;
 flex-wrap:wrap;
@@ -122,6 +81,9 @@ border: none;
 }
 
 .Div-carList {
+border: solid;
+border-color: black;
+border-width: 5px;
 height: 250px;
 width: 250px;
 
@@ -147,31 +109,8 @@ width: 250px;
   animation-duration: var(--modal-duration);
 }
 
-
 .modal-body {
   padding: 10px 20px;
   background: #fff;
 }
 
-.close {
-  color: #ccc;
-  float: right;
-  font-size: 30px;
-  color: #fff;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

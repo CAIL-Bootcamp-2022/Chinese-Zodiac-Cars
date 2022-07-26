@@ -246,8 +246,8 @@ function btnWrapper() {
   chooseYear();
   console.log("chosenYear", chosenYear);
   getCarApi();
-  // addNewUser();
-  // addNewCar();
+  addNewUser();
+  addNewCar();
   roulette_spin();
   roulette_spin(this);}
   else {
