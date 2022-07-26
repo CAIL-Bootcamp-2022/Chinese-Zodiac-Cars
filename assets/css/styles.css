@@ -79,6 +79,20 @@ text-align: center;
 }
 
 /* Car list style */
+
+.mainSection{
+  display: flex;
+  max-width: fit-content;
+}
+
+.Firstflex .secondSection .thirdSection{
+justify-content: center;
+margin-left: 5px;
+margin-right: 5px;
+
+}
+
+
 .Div-usersList{
 height: 50px;
 width: 300px;
@@ -91,25 +105,25 @@ margin-bottom: 0.2rem;
 
 }
 .wheel{
-
-flex-direction: column;
-padding-left: 10%;
-
-}
-
-.rightSection{
-margin-left: 60rem;
-margin-top: 0%;
+padding-left: 5%;
+border: solid;
+border-color: black;
+border-width: 2px;
+width: fit-content;
 
 }
 
-.Div-carList{
-  height: 50px;
-  width: 100px;
-  border: solid;
-  border-width: 0.2rem;
-  border-color: black;
-  border-radius: 0.8rem;
+.carList{
+display: flex;
+flex-wrap:wrap;
+height: 250px;
+width: 200px;
+border: none;
+}
+
+.Div-carList {
+height: 250px;
+width: 250px;
 
 }
 

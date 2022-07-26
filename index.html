@@ -12,36 +12,41 @@
 		<title>Luner Tuner!</title>
 	</head>
 	<body>
-    <!-- Header with 2 pictures and h1 -->
+		<!-- Header with 2 pictures and h1 -->
 		<header class="first">
-      <!--The first section contains a picture -->
-      <img class="webpicture" src="assets/images/cny zodiac stories top banner.jpg" alt="picture">
-      <div><img class="logo" src="./assets/images/lunar_tuner.png"></div>
-      <h1>LunarTuner</h1>
-    </header>
+			<!--The first section contains a picture -->
+			<img class="webpicture" src="assets/images/cny zodiac stories top banner.jpg" alt="picture" />
+			<div><img class="logo" src="./assets/images/lunar_tuner.png" /></div>
+			<h1>LunarTuner</h1>
+		</header>
 
-      <!-- User Input -->
-		  <section class="flex">
-		<!--  right section for user input and local storage -->
-		<section class="leftSection">
-			<fieldset>
-        <legend>Find your ride based on the year you were born.</legend>
-        
-        <div class="vertical">
-          <p>
-            <label>First Name
-              <input type="text" id="fname" placeholder="Name">
-            </label>
-          </p>
-          <p>
-            <label>Year of Birth
-              <input type="text" id="birthyear" placeholder="Year of Birth">
-            </label>
-          </p>
-        </div>
-      
-		<section class="flex" id="main-section">
+		<main class="mainSection">
+			<!-- first item inside the main flex box -->
+			<fieldset class="Firstflex">
+				<legend>Find your ride based on the year you were born.</legend>
 
+				<div class="vertical">
+					<p>
+					  <label>First Name
+						<input type="text" id="fname" placeholder="Name">
+					  </label>
+					</p>
+					<p>
+					  <label>Year of Birth
+						<input type="text" id="birthyear" placeholder="Year of Birth">
+					  </label>
+					</p>
+				  </div>
+				  <section class="flex" id="main-section">
+					  <button class="black" id="wheel-btn">
+
+<<<<<<< HEAD
+					  Spin the Wheel</button>
+				<button class="black" id="wheel-btn">Spin the Wheel</button>
+			</fieldset>
+
+			<div class="name"></div>
+=======
 			<button class="black" id="wheel-btn">
 			Spin the Wheel</button>
       </fieldset>
@@ -59,12 +64,19 @@
 	  </div>
 
       <div class="name"></div>
+>>>>>>> origin
 			<div class="DOF"></div>
-			<p style="--mx:31px;">Recent searches:</p>
-			<div id="userList" style="--shadow:2.5">
+			<p style="--mx: 31px">Recent searches:</p>
+			<div id="userList" style="--shadow: 2.5">
 				<!-- Here will be list of the users history from the local storage -->
 			</div>
 
+<<<<<<< HEAD
+			<section class="secondSection">
+				<span id="score">&nbsp;</span>
+				<!-- Main image -->
+				<img class="roulette_wheel" src="assets/images/lunar_tuner_wheel.png" />
+=======
         <div class="wheel" style="--inset-top:350px; --pos:absolute;--px:42px;">
           <span id="score" style="--shadow:3">&nbsp;</span>
           <!-- Main image -->
@@ -76,18 +88,19 @@
             style="position: absolute; top: 1px; left: 400px; background-color: rgb(0, 0, 0); width: 5px; height: 60px"
           ></div> -->
         </div>
+>>>>>>> origin
 			</section>
 
-			<section class="rightSection">
-				<div class="flex" id="carList" style="--shadow:20;"></div>
+			<section class="thirdSection">
+				<div id="carList" style="--shadow: 20"></div>
 				<!-- Here will be the list of cars -->
 			</section>
-		</section>
-		  </main>
+		</main>
+
 		<!-- <footer>
 			<div style="--text-3d: var(--mainblack); --c:var(--mainblack)">
 			<h2>Created by Alan, Christian, Ivan and Lee!</h2>
-		  </footer> -->
+			  </footer> -->
 	</body>
 	<script
 		src="https://code.jquery.com/jquery-3.6.0.min.js"
