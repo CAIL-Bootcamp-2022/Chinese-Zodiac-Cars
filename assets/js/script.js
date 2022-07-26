@@ -259,3 +259,15 @@ function btnWrapper() {
 closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 wheelBtn.addEventListener("click", btnWrapper);
+birthYear.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnWrapper()
+  }
+});
+firstName.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnWrapper()
+  }
+});
