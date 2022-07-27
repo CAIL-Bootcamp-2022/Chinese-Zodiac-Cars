@@ -162,6 +162,27 @@ function addNewUser() {
   var newUserDiv = document.createElement("div");
   newUserDiv.classList.add("Div-usersList");
   userList.appendChild(newUserDiv);
+  // localStorageGrabber()
+}
+
+// Grabbing the username and year for local storage isnt working though
+function localStorageGrabber() {
+  for (let i = 0; i <localStorage.length; i++){
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+  
+    scoreElem.Output.innerHTML += `${key}: ${value}<br />`;
+  }
+}
+
+// saving the username and year for local storage IS WORKING
+function localStorageSaver() {
+  const value = birthYear.value
+  const key = firstName.value
+  if(key && value){
+    localStorage.setItem(key, value)
+  }
+
 }
 
 //   Add cars list
@@ -257,6 +278,7 @@ function varReset() {
 
 function btnWrapper() {
   if (birthYear.value >= 1960 && birthYear.value <= 2022 && firstName.value) {
+    localStorageSaver();
     userZodiac();
     clearCarList();
     chooseYear();

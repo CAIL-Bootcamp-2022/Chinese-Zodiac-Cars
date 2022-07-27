@@ -41,9 +41,10 @@ legend{
   size: 200px;
 }
 #score{
-font-weight:400;
+font-weight:700;
 font-size:50px; 
 text-align: center;
+color: black;
 }
 
 /* Car list style */
@@ -122,17 +123,33 @@ font-size: 1.5rem;
   animation-duration: var(--modal-duration);
 }
 
-.modal-body {
-  padding: 10px 20px;
-  background: #fff;
+@media screen and (max-width:320px){
+  body{flex-direction: column;}
+  .wheel{
+    margin:auto 0;
+    top: 800px;
+    left: 0px;
+    height:400px ;
+    width:400px;
+    font-size:10px; 
+  }
 }
 
-@media (min-width:320px)  {body{flex-direction: row;}}
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+@media (max-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (max-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media screen and (max-width:961px)  {
+   body{flex-direction: column;}
+    .wheel{
+      margin:auto 0;
+      top: 800px;
+      left: 0px;
+      height:400px ;
+      width:400px;
+      font-size:10px; 
+    }
+}
+@media (max-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (max-width:1281px) { /* hi-res laptops and desktops */ }
 
 
 
