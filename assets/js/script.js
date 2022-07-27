@@ -16,10 +16,10 @@ const zodiacYears = {
   tiger: [1962, 1974, 1986, 1998, 2010, 2022],
   rabbit: [1963, 1975, 1987, 1999, 2011],
   dragon: [1964, 1976, 1988, 2000, 2012],
-  snake: [1965, 1977, 1989, 2001, 2013, 2025],
-  horse: [1966, 1978, 1990, 2002, 2014, 2026],
-  goat: [1967, 1979, 1991, 2003, 2015, 2027],
-  monkey: [1968, 1980, 1992, 2004, 2016, 2028],
+  snake: [1965, 1977, 1989, 2001, 2013],
+  horse: [1966, 1978, 1990, 2002, 2014],
+  goat: [1967, 1979, 1991, 2003, 2015],
+  monkey: [1968, 1980, 1992, 2004, 2016],
   rooster: [1969, 1981, 1993, 2005, 2017],
   dog: [1970, 1982, 1994, 2006, 2018],
   pig: [1971, 1983, 1995, 2007, 2019],
@@ -103,13 +103,18 @@ function userZodiac() {
 
 // Chooses a random year from the assigned zodiac array
 function chooseYear() {
-  function getRandomIntInclusive(min = 0, max = userYears.length - 1) {
+  var validYears = userYears.filter(
+    (userYear) => userYear >= 1980 && userYear <= 2022
+  );
+
+  function getRandomIntInclusive(min = 0, max = validYears.length - 1) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   }
 
-  chosenYear = userYears[getRandomIntInclusive()];
+  chosenYear = validYears[getRandomIntInclusive()];
+  console.log(chosenYear);
 }
 
 // Gets API info and chooses a different year if any empty object is returned
@@ -126,15 +131,9 @@ function getCarApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log("car-response", response);
-    if (response.length === 0) {
-      chooseYear();
-      getCarApi();
-    } else {
-      carData = response;
-      console.log("carData", carData);
-      getImageApi();
-    }
+    carData = response;
+    console.log("carData", carData);
+    getImageApi();
   });
 }
 
@@ -151,9 +150,10 @@ function getImageApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log("image-response", response);
-    carImage = response.photos[0].src.tiny;
-    console.log("carImage", carImage)
+    randomValue();
+    carImage = response.photos[randVal].src.tiny;
+    console.log("carImage", carImage);
+    addNewCar();
   });
 }
 
@@ -170,8 +170,12 @@ function addNewCar() {
   newCarDiv.classList.add("Div-carList");
   carList.appendChild(newCarDiv);
   var newImageElem = document.createElement("img");
-  newImageElem.setAttribute("src", carImage);
   newCarDiv.appendChild(newImageElem);
+  newImageElem.setAttribute("src", carImage);
+}
+
+function clearCarList() {
+  carList.innerHTML = "";
 }
 
 // Wheele spining
@@ -243,18 +247,24 @@ function outsideClick(e) {
   }
 }
 
+function varReset() {
+  zodiacAnimal = null;
+  userYears = null;
+  chosenYear = null;
+  carData = null;
+  carImage = null;
+}
+
 function btnWrapper() {
-  if (birthYear.value >= 1900 && birthYear.value <= 2022 && firstName.value) {
-    console.log("birthYear.value", birthYear.value);
+  if (birthYear.value >= 1960 && birthYear.value <= 2022 && firstName.value) {
     userZodiac();
-    console.log("userYears", userYears);
+    clearCarList();
     chooseYear();
-    console.log("chosenYear", chosenYear);
     getCarApi();
     addNewUser();
-    addNewCar();
     roulette_spin();
     roulette_spin(this);
+    varReset();
   } else {
     openModal();
   }
