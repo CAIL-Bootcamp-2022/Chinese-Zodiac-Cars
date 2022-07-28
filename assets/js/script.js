@@ -150,7 +150,6 @@ function getImageApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    randomValue();
     carImage = response.photos[0].src.tiny;
     console.log("carImage", carImage);
     addNewCar();
@@ -209,22 +208,8 @@ var randForce = 15;
 var rouletteElem = document.getElementsByClassName("roulette_wheel")[0];
 var scoreElem = document.getElementById("score");
 
-var values = [
-  "Your chinese horoscope is Rat",
-  " Your chinese horoscope is Ox",
-  " Your chinese horoscope is Tiger",
-  " Your chinese horoscope is Rabbit",
-  "Your chinese horoscope is Dragon",
-  " Your chinese horoscope is Snake",
-  " Your chinese horoscope is Horse",
-  "Your chinese horoscope is Sheep",
-  "Your chinese horoscope is Monkey",
-  "Your chinese horoscope is Rooster",
-  "Your chinese horoscope is Dog ",
-  "Your chinese horoscope is Pig",
-].reverse();
-
 function roulette_spin(btn) {
+  scoreElem.textContent = `Your Chinese zodiac animal is the ${zodiacAnimal.toUpperCase()}!`
   // set initial force randomly
   force = Math.floor(Math.random() * randForce) + minForce;
   requestAnimationFrame(doAnimation);
@@ -237,12 +222,6 @@ function doAnimation() {
   force *= inertia;
   rouletteElem.style.transform = "rotate(" + angle + "deg)";
   // stop animation if force is too low
-  if (force < 0.05) {
-    // score roughly estimated
-    scoreElem.innerHTML =
-      values[Math.floor((angle / 360) * values.length - 0.5)];
-    return;
-  }
   requestAnimationFrame(doAnimation);
   // document.getElementsByClassName('roulette_center')[0].addEventListener('click', roulette_spin);
 }
