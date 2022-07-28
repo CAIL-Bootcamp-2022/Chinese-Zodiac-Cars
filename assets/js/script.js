@@ -171,9 +171,6 @@ function renderPrevUsers() {
   // Clear userList element
   userList.innerHTML = "";
 
-  
-  
-
   // Render a new ul for each previous user
   for (var i = 0; i < storedUserData.name.length; i++) {
     var name = storedUserData.name[i];
