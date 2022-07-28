@@ -8,6 +8,10 @@ body {
   background-image: linear-gradient(to left, rgb(255, 217, 0), orange, rgba(255, 0, 0, 0.753));
 }
 
+* {
+  zoom: 94%;
+}
+
 .webpicture {
   width: 100%;
   height: 12.5rem;
@@ -161,21 +165,14 @@ legend {
 
   .wheel {
     margin: auto 0;
-    top: 50rem;
+    top: 62rem;
     left: 0rem;
-    height: 25rem;
-    width: 25rem;
-    font-size: 0.625rem;
+    height: 35rem;
+    width: 35rem;
+    font-size: 0.525rem;
   }
 }
 
-@media (max-width:481px) {
-  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-}
-
-@media (max-width:641px) {
-  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-}
 
 @media screen and (max-width:961px) {
   body {
@@ -184,18 +181,10 @@ legend {
 
   .wheel {
     margin: auto 0;
-    top: 50rem;
+    top: 60rem;
     left: 0rem;
-    height: 25rem;
-    width: 25rem;
-    font-size: 0.625rem;
+    height: 35rem;
+    width: 35rem;
+    font-size: 0.525rem;
   }
-}
-
-@media (max-width:1025px) {
-  /* big landscape tablets, laptops, and desktops */
-}
-
-@media (max-width:1281px) {
-  /* hi-res laptops and desktops */
 }
