@@ -125,6 +125,35 @@ legend {
   animation-duration: var(--modal-duration);
 }
 
+.modal-body {
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width:320px) {
   body {
     flex-direction: column;
