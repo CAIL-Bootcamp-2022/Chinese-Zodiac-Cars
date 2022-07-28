@@ -2,13 +2,21 @@
 var wheelBtn = document.getElementById("wheel-btn");
 var userList = document.getElementById("userList");
 var carList = document.getElementById("carList");
-var firstName = document.getElementById("fname");
-var birthYear = document.getElementById("birthyear");
-var zodiacAnimal;
+var userName = document.getElementById("fname");
+var userBirthYear = document.getElementById("birthyear");
+var userZodiac;
 var userYears;
 var chosenYear;
 var carData;
 var carImage;
+
+const userData = {
+  name: [],
+  birthYear: [],
+  zodiac: [],
+};
+
+var storedUserData = userData;
 
 const zodiacYears = {
   rat: [1960, 1972, 1984, 1996, 2008, 2020],
@@ -26,79 +34,81 @@ const zodiacYears = {
 };
 
 // Checks user entered birth year against all zodiac arrays and assigns zodiac on matching value
-function userZodiac() {
+function getUserZodiac() {
   for (var i = 0; i < zodiacYears.rat.length; i++) {
-    if (birthYear.value == zodiacYears.rat[i]) {
-      zodiacAnimal = "rat";
+    if (userBirthYear.value == zodiacYears.rat[i]) {
+      userZodiac = "rat";
       userYears = zodiacYears.rat;
     }
   }
   for (var i = 0; i < zodiacYears.ox.length; i++) {
-    if (birthYear.value == zodiacYears.ox[i]) {
-      zodiacAnimal = "ox";
+    if (userBirthYear.value == zodiacYears.ox[i]) {
+      userZodiac = "ox";
       userYears = zodiacYears.ox;
     }
   }
   for (var i = 0; i < zodiacYears.tiger.length; i++) {
-    if (birthYear.value == zodiacYears.tiger[i]) {
-      zodiacAnimal = "tiger";
+    if (userBirthYear.value == zodiacYears.tiger[i]) {
+      userZodiac = "tiger";
       userYears = zodiacYears.tiger;
     }
   }
   for (var i = 0; i < zodiacYears.rabbit.length; i++) {
-    if (birthYear.value == zodiacYears.rabbit[i]) {
-      zodiacAnimal = "rabbit";
+    if (userBirthYear.value == zodiacYears.rabbit[i]) {
+      userZodiac = "rabbit";
       userYears = zodiacYears.rabbit;
     }
   }
   for (var i = 0; i < zodiacYears.dragon.length; i++) {
-    if (birthYear.value == zodiacYears.dragon[i]) {
-      zodiacAnimal = "dragon";
+    if (userBirthYear.value == zodiacYears.dragon[i]) {
+      userZodiac = "dragon";
       userYears = zodiacYears.dragon;
     }
   }
   for (var i = 0; i < zodiacYears.snake.length; i++) {
-    if (birthYear.value == zodiacYears.snake[i]) {
-      zodiacAnimal = "snake";
+    if (userBirthYear.value == zodiacYears.snake[i]) {
+      userZodiac = "snake";
       userYears = zodiacYears.snake;
     }
   }
   for (var i = 0; i < zodiacYears.horse.length; i++) {
-    if (birthYear.value == zodiacYears.horse[i]) {
-      zodiacAnimal = "horse";
+    if (userBirthYear.value == zodiacYears.horse[i]) {
+      userZodiac = "horse";
       userYears = zodiacYears.horse;
     }
   }
   for (var i = 0; i < zodiacYears.goat.length; i++) {
-    if (birthYear.value == zodiacYears.goat[i]) {
-      zodiacAnimal = "goat";
+    if (userBirthYear.value == zodiacYears.goat[i]) {
+      userZodiac = "goat";
       userYears = zodiacYears.goat;
     }
   }
   for (var i = 0; i < zodiacYears.monkey.length; i++) {
-    if (birthYear.value == zodiacYears.monkey[i]) {
-      zodiacAnimal = "monkey";
+    if (userBirthYear.value == zodiacYears.monkey[i]) {
+      userZodiac = "monkey";
       userYears = zodiacYears.monkey;
     }
   }
   for (var i = 0; i < zodiacYears.rooster.length; i++) {
-    if (birthYear.value == zodiacYears.rooster[i]) {
-      zodiacAnimal = "rooster";
+    if (userBirthYear.value == zodiacYears.rooster[i]) {
+      userZodiac = "rooster";
       userYears = zodiacYears.rooster;
     }
   }
   for (var i = 0; i < zodiacYears.dog.length; i++) {
-    if (birthYear.value == zodiacYears.dog[i]) {
-      zodiacAnimal = "dog";
+    if (userBirthYear.value == zodiacYears.dog[i]) {
+      userZodiac = "dog";
       userYears = zodiacYears.dog;
     }
   }
   for (var i = 0; i < zodiacYears.pig.length; i++) {
-    if (birthYear.value == zodiacYears.pig[i]) {
-      zodiacAnimal = "pig";
+    if (userBirthYear.value == zodiacYears.pig[i]) {
+      userZodiac = "pig";
       userYears = zodiacYears.pig;
     }
   }
+  userDataCapture();
+  storeData();
 }
 
 // Chooses a random year from the assigned zodiac array
@@ -150,52 +160,53 @@ function getImageApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    carImage = response.photos[0].src.tiny;
+    carImage = response;
     console.log("carImage", carImage);
-    addNewCar();
+    renderCarImage();
   });
 }
 
 //   Add user list
-function addNewUser() {
-  var newUserDiv = document.createElement("div");
-  newUserDiv.classList.add("Div-usersList");
-  userList.appendChild(newUserDiv);
-  // localStorageGrabber()
-}
+function renderPrevUsers() {
+  // Clear userList element
+  userList.innerHTML = "";
 
-// Grabbing the username and year for local storage isnt working though
-function localStorageGrabber() {
-  for (let i = 0; i <localStorage.length; i++){
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
-  
-    scoreElem.Output.innerHTML += `${key}: ${value}<br />`;
+  // Render a new ul for each previous user
+  for (var i = 0; i < storedUserData.name.length; i++) {
+    var name = storedUserData.name[i];
+    var birthYear = storedUserData.birthYear[i];
+    var zodiac = storedUserData.zodiac[i];
+
+    var ul = document.createElement("ul");
+    ul.textContent = `${name} (${birthYear}) was a ${zodiac}!`;
+    carList.appendChild(ul);
   }
 }
 
 // saving the username and year for local storage IS WORKING
-function localStorageSaver() {
-  const value = birthYear.value
-  const key = firstName.value
-  if(key && value){
-    localStorage.setItem(key, value)
-  }
+function storeData() {
+  localStorage.setItem("userData", JSON.stringify(userData));
+}
 
+function loadUserData() {
+  storedUserData = JSON.parse(localStorage.getItem("userData"));
+}
+
+function userDataCapture() {
+  userData.name.push(userName.value);
+  userData.birthYear.push(userBirthYear.value);
+  userData.zodiac.push(userZodiac);
 }
 
 //   Add cars list
-function addNewCar() {
+function renderCarImage() {
+  carList.innerHTML = "";
   var newCarDiv = document.createElement("div");
   newCarDiv.classList.add("Div-carList");
   carList.appendChild(newCarDiv);
   var newImageElem = document.createElement("img");
   newCarDiv.appendChild(newImageElem);
-  newImageElem.setAttribute("src", carImage);
-}
-
-function clearCarList() {
-  carList.innerHTML = "";
+  newImageElem.setAttribute("src", carImage.photos[0].src.tiny);
 }
 
 // Wheele spining
@@ -209,7 +220,7 @@ var rouletteElem = document.getElementsByClassName("roulette_wheel")[0];
 var scoreElem = document.getElementById("score");
 
 function roulette_spin(btn) {
-  scoreElem.textContent = `Your Chinese zodiac animal is the ${zodiacAnimal.toUpperCase()}!`
+  scoreElem.textContent = `Your Chinese zodiac animal is the ${userZodiac.toUpperCase()}!`;
   // set initial force randomly
   force = Math.floor(Math.random() * randForce) + minForce;
   requestAnimationFrame(doAnimation);
@@ -247,8 +258,15 @@ function outsideClick(e) {
   }
 }
 
+function init() {
+  if (storedUserData) {
+    loadUserData();
+    renderPrevUsers();
+  }
+}
+
 function varReset() {
-  zodiacAnimal = null;
+  userZodiac = null;
   userYears = null;
   chosenYear = null;
   carData = null;
@@ -256,13 +274,16 @@ function varReset() {
 }
 
 function btnWrapper() {
-  if (birthYear.value >= 1960 && birthYear.value <= 2022 && firstName.value) {
-    localStorageSaver();
-    userZodiac();
-    clearCarList();
+  if (
+    userBirthYear.value >= 1960 &&
+    userBirthYear.value <= 2022 &&
+    userName.value
+  ) {
+    getUserZodiac();
     chooseYear();
+    init();
+    console.log(storedUserData);
     getCarApi();
-    addNewUser();
     roulette_spin();
     roulette_spin(this);
     varReset();
@@ -275,15 +296,17 @@ function btnWrapper() {
 closeBtn.addEventListener("click", closeModal);
 window.addEventListener("click", outsideClick);
 wheelBtn.addEventListener("click", btnWrapper);
-birthYear.addEventListener("keypress", function (event) {
+userBirthYear.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     btnWrapper();
   }
 });
-firstName.addEventListener("keypress", function (event) {
+userName.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
     btnWrapper();
   }
 });
+
+init();
