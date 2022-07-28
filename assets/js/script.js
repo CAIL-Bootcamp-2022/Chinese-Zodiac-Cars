@@ -9,14 +9,16 @@ var userYears;
 var chosenYear;
 var carData;
 var carImage;
+var userCar;
 
 const userData = {
   name: [],
   birthYear: [],
   zodiac: [],
+  car: [],
 };
 
-var storedUserData = userData;
+var storedUserData;
 
 const zodiacYears = {
   rat: [1960, 1972, 1984, 1996, 2008, 2020],
@@ -107,8 +109,6 @@ function getUserZodiac() {
       userYears = zodiacYears.pig;
     }
   }
-  userDataCapture();
-  storeData();
 }
 
 // Chooses a random year from the assigned zodiac array
@@ -143,6 +143,8 @@ function getCarApi() {
   $.ajax(settings).done(function (response) {
     carData = response;
     console.log("carData", carData);
+    userCar = `${carData[0].year} ${carData[0].make} ${carData[0].model}`;
+    console.log(userCar);
     getImageApi();
   });
 }
@@ -163,6 +165,10 @@ function getImageApi() {
     carImage = response;
     console.log("carImage", carImage);
     renderCarImage();
+    userDataCapture();
+    storeData();
+    init();
+    varReset();
   });
 }
 
@@ -176,11 +182,12 @@ function renderPrevUsers() {
     var name = storedUserData.name[i];
     var birthYear = storedUserData.birthYear[i];
     var zodiac = storedUserData.zodiac[i];
+    var car = storedUserData.car[i];
     var newUserDiv = document.createElement("div");
     newUserDiv.classList.add("Div-usersList");
     userList.appendChild(newUserDiv);
     var ul = document.createElement("ul");
-    ul.textContent = `${name} (${birthYear}) was a ${zodiac}!`;
+    ul.textContent = `${name} (${birthYear}), a ${zodiac}, was recommended a ${car.toUpperCase()}!`;
     newUserDiv.appendChild(ul);
   }
 }
@@ -198,17 +205,25 @@ function userDataCapture() {
   userData.name.push(userName.value);
   userData.birthYear.push(userBirthYear.value);
   userData.zodiac.push(userZodiac);
+  userData.car.push(userCar);
 }
 
 //   Add cars list
 function renderCarImage() {
+  // Clear current render
   carList.innerHTML = "";
+
   var newCarDiv = document.createElement("div");
   newCarDiv.classList.add("Div-carList");
   carList.appendChild(newCarDiv);
+
   var newImageElem = document.createElement("img");
-  newCarDiv.appendChild(newImageElem);
   newImageElem.setAttribute("src", carImage.photos[0].src.tiny);
+  newCarDiv.appendChild(newImageElem);
+
+  var newTextElem = document.createElement("h6");
+  newTextElem.textContent = userCar.toUpperCase();
+  newCarDiv.appendChild(newTextElem);
 }
 
 // Wheele spining
@@ -261,8 +276,8 @@ function outsideClick(e) {
 }
 
 function init() {
-  if (storedUserData || userData) {
-    loadUserData();
+  loadUserData();
+  if (storedUserData) {
     renderPrevUsers();
   }
 }
@@ -283,11 +298,9 @@ function btnWrapper() {
   ) {
     getUserZodiac();
     chooseYear();
-    init();
     getCarApi();
     roulette_spin();
     roulette_spin(this);
-    varReset();
   } else {
     openModal();
   }
