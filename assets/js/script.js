@@ -4,24 +4,25 @@ var userList = document.getElementById("userList");
 var carList = document.getElementById("carList");
 var firstName = document.getElementById("fname");
 var birthYear = document.getElementById("birthyear");
-var zodiacAnimal = "";
-var userYears = [];
+var zodiacAnimal;
+var userYears;
 var chosenYear;
 var carData;
+var carImage;
 
 const zodiacYears = {
-  rat: [1900, 1912, 1924, 1936, 1948, 1960, 1972, 1984, 1996, 2008, 2020],
-  ox: [1901, 1913, 1925, 1937, 1949, 1961, 1973, 1985, 1997, 2009, 2021],
-  tiger: [1902, 1914, 1926, 1938, 1950, 1962, 1974, 1986, 1998, 2010, 2022],
-  rabbit: [1903, 1915, 1927, 1939, 1951, 1963, 1975, 1987, 1999, 2011, 2023],
-  dragon: [1904, 1916, 1928, 1940, 1952, 1964, 1976, 1988, 2000, 2012, 2024],
-  snake: [1905, 1917, 1929, 1941, 1953, 1965, 1977, 1989, 2001, 2013, 2025],
-  horse: [1906, 1918, 1930, 1942, 1954, 1966, 1978, 1990, 2002, 2014, 2026],
-  goat: [1907, 1919, 1931, 1943, 1955, 1967, 1979, 1991, 2003, 2015, 2027],
-  monkey: [1908, 1920, 1932, 1944, 1956, 1968, 1980, 1992, 2004, 2016, 2028],
-  rooster: [1909, 1921, 1933, 1945, 1957, 1969, 1981, 1993, 2005, 2017, 2029],
-  dog: [1910, 1922, 1934, 1946, 1958, 1970, 1982, 1994, 2006, 2018, 2030],
-  pig: [1911, 1923, 1935, 1947, 1959, 1971, 1983, 1995, 2007, 2019, 2031],
+  rat: [1960, 1972, 1984, 1996, 2008, 2020],
+  ox: [1961, 1973, 1985, 1997, 2009, 2021],
+  tiger: [1962, 1974, 1986, 1998, 2010, 2022],
+  rabbit: [1963, 1975, 1987, 1999, 2011],
+  dragon: [1964, 1976, 1988, 2000, 2012],
+  snake: [1965, 1977, 1989, 2001, 2013],
+  horse: [1966, 1978, 1990, 2002, 2014],
+  goat: [1967, 1979, 1991, 2003, 2015],
+  monkey: [1968, 1980, 1992, 2004, 2016],
+  rooster: [1969, 1981, 1993, 2005, 2017],
+  dog: [1970, 1982, 1994, 2006, 2018],
+  pig: [1971, 1983, 1995, 2007, 2019],
 };
 
 // Checks user entered birth year against all zodiac arrays and assigns zodiac on matching value
@@ -102,13 +103,18 @@ function userZodiac() {
 
 // Chooses a random year from the assigned zodiac array
 function chooseYear() {
-  function getRandomIntInclusive(min = 0, max = userYears.length) {
+  var validYears = userYears.filter(
+    (userYear) => userYear >= 1980 && userYear <= 2022
+  );
+
+  function getRandomIntInclusive(min = 0, max = validYears.length - 1) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
   }
 
-  chosenYear = userYears[getRandomIntInclusive()];
+  chosenYear = validYears[getRandomIntInclusive()];
+  console.log(chosenYear);
 }
 
 // Gets API info and chooses a different year if any empty object is returned
@@ -125,16 +131,9 @@ function getCarApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log("car-response", response);
-    if (response.length === 0) {
-      chooseYear();
-      getCarApi();
-    }
-    else {
-      carData = response;
-      console.log("carData",carData)
-      getImageApi();
-    }
+    carData = response;
+    console.log("carData", carData);
+    getImageApi();
   });
 }
 
@@ -143,7 +142,7 @@ function getImageApi() {
   const settings = {
     async: true,
     crossDomain: true,
-    url: `https://api.pexels.com/v1/search?query=${carData[0].make}}`,
+    url: `https://api.pexels.com/v1/search?query=${carData[0].make} car`,
     method: "GET",
     headers: {
       Authorization: "563492ad6f9170000100000125fc35443ac14f708d6dc9b7b281a2fd",
@@ -151,7 +150,10 @@ function getImageApi() {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log("image-response", response);
+    randomValue();
+    carImage = response.photos[randVal].src.tiny;
+    console.log("carImage", carImage);
+    addNewCar();
   });
 }
 
@@ -160,6 +162,27 @@ function addNewUser() {
   var newUserDiv = document.createElement("div");
   newUserDiv.classList.add("Div-usersList");
   userList.appendChild(newUserDiv);
+  // localStorageGrabber()
+}
+
+// Grabbing the username and year for local storage isnt working though
+function localStorageGrabber() {
+  for (let i = 0; i <localStorage.length; i++){
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+  
+    scoreElem.Output.innerHTML += `${key}: ${value}<br />`;
+  }
+}
+
+// saving the username and year for local storage IS WORKING
+function localStorageSaver() {
+  const value = birthYear.value
+  const key = firstName.value
+  if(key && value){
+    localStorage.setItem(key, value)
+  }
+
 }
 
 //   Add cars list
@@ -167,6 +190,13 @@ function addNewCar() {
   var newCarDiv = document.createElement("div");
   newCarDiv.classList.add("Div-carList");
   carList.appendChild(newCarDiv);
+  var newImageElem = document.createElement("img");
+  newCarDiv.appendChild(newImageElem);
+  newImageElem.setAttribute("src", carImage);
+}
+
+function clearCarList() {
+  carList.innerHTML = "";
 }
 
 // Wheele spining
@@ -218,56 +248,63 @@ function doAnimation() {
 }
 
 // Get DOM Elements
-const modal = document.querySelector('#my-modal');
-const closeBtn = document.querySelector('.close');
+const modal = document.querySelector("#my-modal");
+const closeBtn = document.querySelector(".close");
 
 // Open
 function openModal() {
-  modal.style.display = 'block';
+  modal.style.display = "block";
 }
 
 // Close
 function closeModal() {
-  modal.style.display = 'none';
+  modal.style.display = "none";
 }
 
 // Close If Outside Click
 function outsideClick(e) {
   if (e.target == modal) {
-    modal.style.display = 'none';
+    modal.style.display = "none";
   }
 }
 
+function varReset() {
+  zodiacAnimal = null;
+  userYears = null;
+  chosenYear = null;
+  carData = null;
+  carImage = null;
+}
+
 function btnWrapper() {
-  if (birthYear.value >= 1900 && birthYear.value <= 2022 && firstName.value) {
-  console.log("birthYear.value", birthYear.value);
-  userZodiac();
-  console.log("userYears", userYears);
-  chooseYear();
-  console.log("chosenYear", chosenYear);
-  getCarApi();
-  addNewUser();
-  addNewCar();
-  roulette_spin();
-  roulette_spin(this);}
-  else {
+  if (birthYear.value >= 1960 && birthYear.value <= 2022 && firstName.value) {
+    localStorageSaver();
+    userZodiac();
+    clearCarList();
+    chooseYear();
+    getCarApi();
+    addNewUser();
+    roulette_spin();
+    roulette_spin(this);
+    varReset();
+  } else {
     openModal();
   }
 }
 
 // Events
-closeBtn.addEventListener('click', closeModal);
-window.addEventListener('click', outsideClick);
+closeBtn.addEventListener("click", closeModal);
+window.addEventListener("click", outsideClick);
 wheelBtn.addEventListener("click", btnWrapper);
-birthYear.addEventListener("keypress", function(event) {
+birthYear.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
-    btnWrapper()
+    btnWrapper();
   }
 });
-firstName.addEventListener("keypress", function(event) {
+firstName.addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     event.preventDefault();
-    btnWrapper()
+    btnWrapper();
   }
 });
