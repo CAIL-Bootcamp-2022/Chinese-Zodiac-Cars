@@ -1,27 +1,25 @@
-
-body{
+body {
   display: flex;
-  flex-direction:column;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  flex-direction: column;
+  margin-top: 0rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
   font-family: 'Times New Roman', Times, serif;
   background-image: linear-gradient(to left, rgb(255, 217, 0), orange, rgba(255, 0, 0, 0.753));
 }
 
-.webpicture{
+.webpicture {
   width: 100%;
-  height: 200px;
- 
+  height: 12.5rem;
+
 }
 
-.logo{
+.logo {
   position: absolute;
-  width: 200px;
-  top: 1px;
-  left: 5px;
-  margin-right: 100px;
-  
+  width: 12.5rem;
+  top: 0.0625rem;
+  left: 0.3125rem;
+  margin-right: 6.25rem;
 }
 
 P {
@@ -29,80 +27,82 @@ P {
   font-size: 1.5rem;
 }
 
-legend{
+legend {
   color: black;
   font-size: 1.5rem;
 }
+
 /* roulette_center */
 
-.roulette_wheel{
+.roulette_wheel {
   display: flex;
   justify-content: center;
-  size: 200px;
+  size: 12.5rem;
 }
-#score{
-font-weight:700;
-font-size:50px; 
-text-align: center;
-color: black;
+
+#score {
+  font-weight: 700;
+  font-size: 3.125rem;
+  text-align: center;
+  color: black;
 }
 
 /* Car list style */
 
-.mainSection{
+.mainSection {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 
 }
 
-.Firstflex .secondSection .thirdSection{
-flex-direction: row;
-/* margin-left: 10px; */
-margin-right: 10px;
+.Firstflex .secondSection .thirdSection {
+  flex-direction: row;
+  /* margin-left: 0.625rem; */
+  margin-right: 0.625rem;
 
 }
 
-.Div-usersList{
-height: 50px;
-width: 300px;
-border: solid;
-border-width: 0.2rem;
-border-color: black;
-border-radius: 0.8rem;
-margin-left: 1.2rem;
-margin-bottom: 0.2rem;
-font-size: 25px;
-font-weight: 700;
-color:black
-
-}
-.wheel{
-padding-left: 20%;
-width: fit-content;
-
+.Div-usersList {
+  /* height: 3.125rem;
+  width: 18.75rem;
+  border: solid;
+  border-width: 0.2rem;
+  border-color: black;
+  border-radius: 0.8rem; */
+  margin-left: 1.2rem;
+  margin-bottom: 0.2rem;
+  font-size: 1.5625rem;
+  font-weight: 700;
+  color: black
 }
 
-.thirdSection{
+.wheel {
+  padding-left: 20%;
+  width: fit-content;
+
+}
+
+.thirdSection {
   flex-shrink: 1;
   padding-right: 5%;
 }
-.carList{
-display: flex;
-flex-wrap:wrap;
-height: 250px;
-width: 200px;
-border: none;
+
+.carList {
+  display: flex;
+  flex-wrap: wrap;
+  height: 15.625rem;
+  width: 12.5rem;
+  border: none;
 }
 
 .Div-carList {
-border: solid;
-border-color: black;
-border-width: 5px;
-height: 250px;
-width: 250px;
-font-size: 1.5rem;
-
+  /* border: solid;
+  border-color: black;
+  border-width: 0.3125rem;
+  height: 15.625rem;
+  width: 15.625rem; */
+  font-size: 1.5rem;
 }
 
 .modal {
@@ -120,41 +120,53 @@ font-size: 1.5rem;
 .modal-content {
   margin: 10% auto;
   width: 60%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  box-shadow: 0 0.3125rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.4375rem 1.25rem 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
 }
 
-@media screen and (max-width:320px){
-  body{flex-direction: column;}
-  .wheel{
-    margin:auto 0;
-    top: 800px;
-    left: 0px;
-    height:400px ;
-    width:400px;
-    font-size:10px; 
+@media screen and (max-width:320px) {
+  body {
+    flex-direction: column;
+  }
+
+  .wheel {
+    margin: auto 0;
+    top: 50rem;
+    left: 0rem;
+    height: 25rem;
+    width: 25rem;
+    font-size: 0.625rem;
   }
 }
 
-@media (max-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (max-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media screen and (max-width:961px)  {
-   body{flex-direction: column;}
-    .wheel{
-      margin:auto 0;
-      top: 800px;
-      left: 0px;
-      height:400px ;
-      width:400px;
-      font-size:10px; 
-    }
+@media (max-width:481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 }
-@media (max-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
-@media (max-width:1281px) { /* hi-res laptops and desktops */ }
 
+@media (max-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
 
+@media screen and (max-width:961px) {
+  body {
+    flex-direction: column;
+  }
 
+  .wheel {
+    margin: auto 0;
+    top: 50rem;
+    left: 0rem;
+    height: 25rem;
+    width: 25rem;
+    font-size: 0.625rem;
+  }
+}
 
+@media (max-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
 
-
+@media (max-width:1281px) {
+  /* hi-res laptops and desktops */
+}
