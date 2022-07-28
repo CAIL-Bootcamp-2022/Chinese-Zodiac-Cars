@@ -151,7 +151,7 @@ function getImageApi() {
 
   $.ajax(settings).done(function (response) {
     randomValue();
-    carImage = response.photos[randVal].src.tiny;
+    carImage = response.photos[0].src.tiny;
     console.log("carImage", carImage);
     addNewCar();
   });
