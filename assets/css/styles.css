@@ -76,14 +76,14 @@ margin-bottom: 0.2rem;
 
 }
 .wheel{
-padding-left: 5%;
+padding-left: 20%;
 width: fit-content;
 
 }
 
 .thirdSection{
   flex-shrink: 1;
-  
+  padding-right: 5%;
 }
 .carList{
 display: flex;
