@@ -30,7 +30,7 @@ P {
 }
 
 legend{
-  color: black; 
+  color: black;
   font-size: 1.5rem;
 }
 /* roulette_center */
@@ -50,9 +50,9 @@ color: black;
 /* Car list style */
 
 .mainSection{
-  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
 }
 
@@ -78,14 +78,6 @@ margin-bottom: 0.2rem;
 .wheel{
 padding-left: 20%;
 width: fit-content;
-
-}
-.roulette_wheel{
-  padding-left: 20%;
-  padding-top: 10%;
-}
-#score{
-  padding-left: 20%;
 
 }
 
