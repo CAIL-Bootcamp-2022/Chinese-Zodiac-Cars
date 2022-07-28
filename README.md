@@ -14,8 +14,9 @@ enter or click the spin button then our wheel spins and shows you your Chinese Z
 your Chinese Zodiac appear on the right side of your screen!
 ---
 Here are some pictures! 
-![Screenshot1](https://i.postimg.cc/fbwbmGtc/picture-1.png)
-![Screenshot2](https://i.postimg.cc/HLZ7xYZc/picture-2.png)
+![Screenshot1](https://i.postimg.cc/1RdXHhFc/image.png)
+![Screenshot2](https://i.postimg.cc/ZKyRs7Fk/image.png)
+![Screenshot3](https://i.postimg.cc/T15RS1bj/image.png)
 ---
 [LunarTuner Working Website!](https://cail-bootcamp-2022.github.io/Chinese-Zodiac-Cars/)
 [LunarTuner Repo!](https://github.com/CAIL-Bootcamp-2022/Chinese-Zodiac-Cars)
@@ -32,4 +33,3 @@ Created by, Alan Hanna, Ivan Ramirez, Christian Romero, and Lizandro Varela
 We will split the work evenly and take breaks every day at 8:15 for 15 minutes. We will meet on Wednesdays in the afternoon from 7-9:30. Fridays we will meet from 7-9:30 as well. Then on Saturdays and Sundays we will be meeting for longer at the times 1-6 PM.
 
 <!-- This sentence is temporary for the sake of syncing. -->
-<!-- backup code -->
