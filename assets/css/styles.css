@@ -18,6 +18,12 @@ body {
 
 }
 
+h6{
+  font-weight: 700;
+  color: #000;
+  font-size: 30px;
+}
+
 .logo {
   position: absolute;
   width: 12.5rem;
@@ -46,7 +52,7 @@ legend {
 
 #score {
   font-weight: 700;
-  font-size: 3.125rem;
+  font-size: 2.8rem;
   text-align: center;
   color: black;
 }
@@ -165,7 +171,7 @@ legend {
 
   .wheel {
     margin: auto 0;
-    top: 62rem;
+    top: 64rem;
     left: 0rem;
     height: 35rem;
     width: 35rem;
@@ -181,7 +187,7 @@ legend {
 
   .wheel {
     margin: auto 0;
-    top: 60rem;
+    top: 64rem;
     left: 0rem;
     height: 35rem;
     width: 35rem;
